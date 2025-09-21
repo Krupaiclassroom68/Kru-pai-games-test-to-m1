@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English M.1 Entrance – Tenses • Articles • Pronouns • Adjectives</title>
+  <style>
+    :root{
+      --bg:#f7fafc; --card:#ffffff; --text:#0f172a; --muted:#64748b;
+      --accent:#7c3aed; --accent2:#3b82f6; --good:#16a34a; --bad:#ef4444;
+      --ring: rgba(124,58,237,.18);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family: ui-rounded, "Poppins","Kanit", system-ui; background:var(--bg); color:var(--text)}
+    .wrap{max-width:960px;margin:18px auto;padding:16px}
+    .card{background:var(--card);border-radius:24px;box-shadow:0 10px 30px rgba(2,6,23,.06);padding:20px}
+    h1{margin:0;font-size:clamp(22px,3.4vw,36px)}
+    .muted{color:var(--muted)}
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 16px;border:none;border-radius:12px;font-weight:800;cursor:pointer}
+    .btn:active{transform:translateY(1px)}
+    .primary{background:linear-gradient(180deg,#8b5cf6,#7c3aed);color:#fff;box-shadow:0 10px 18px rgba(124,58,237,.25)}
+    .ghost{background:#eef2ff;color:#312e81}
+    .good{color:var(--good);font-weight:800}
+    .bad{color:var(--bad);font-weight:800}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef2ff;color:#3730a3;font-weight:800;font-size:12px}
+    .progress{height:12px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+    .progress>span{display:block;height:100%;width:0%;background:linear-gradient(90deg,#3b82f6,#06b6d4);transition:width .35s ease}
+    .qtext{font-size:clamp(18px,3vw,24px);font-weight:900;margin:8px 0}
+    .olist{display:grid;gap:10px;margin-top:8px}
+    .opt{border:2px solid #e5e7eb;border-radius:14px;padding:12px 14px;cursor:pointer;font-weight:700}
+    .opt:hover{border-color:#c7d2fe}
+    .opt.correct{background:#ecfdf5;border-color:#10b981}
+    .opt.wrong{background:#fef2f2;border-color:#f87171}
+    .disabled{pointer-events:none;opacity:.7}
+    .hidden{display:none !important}
+    input[type="text"]{width:100%;font-size:18px;padding:12px 14px;border-radius:12px;border:2px solid #e5e7eb;outline:none}
+    input[type="text"]:focus{border-color:#8b5cf6;box-shadow:0 0 0 6px var(--ring)}
+    footer{margin-top:10px;color:var(--muted);font-size:12px;text-align:center}
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    th,td{border-bottom:1px solid #e5e7eb;padding:8px;text-align:left}
+    th{background:#f8fafc}
+    .center{display:grid;place-items:center}
+  
+    /* === Kru Pai Classroom Brand Bar === */
+    .kpc-brandbar{
+      position:fixed; top:10px; left:10px; z-index:9999;
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 14px; border-radius:999px;
+      background:linear-gradient(90deg,#fb7185,#f59e0b);
+      color:#ffffff; font-weight:900; letter-spacing:.3px;
+      box-shadow:0 10px 20px rgba(0,0,0,.18);
+      user-select:none;
+    }
+    .kpc-brand-dot{
+      width:28px; height:28px; border-radius:999px;
+      background:#ffffff; color:#111827;
+      display:grid; place-items:center; font-weight:900; font-size:14px;
+      box-shadow:0 2px 8px rgba(0,0,0,.12);
+    }
+    @media (max-width:480px){
+      .kpc-brandbar{transform:scale(.92); transform-origin:top left;}
+    }
+    
+</style>
+</head>
+<body>
+<div class="kpc-brandbar"><div class="kpc-brand-dot">KP</div> Kru Pai Classroom</div>
+<div class="wrap">
+
+  <!-- START -->
+  <section id="start" class="card">
+    <h1>English M.1 Entrance Practice</h1>
+    <div class="muted">Tenses • Articles • Pronouns • Adjectives — 40 Questions (A–D)</div>
+    <div class="card" style="margin-top:12px">
+      <b>วิธีเล่น (สั้น ๆ)</b>
+      <ol style="margin:8px 0 0 18px">
+        <li>ตอบแบบตัวเลือก <b>A–D</b> — เฉลยทันทีหลังเลือก</li>
+        <li>ครบ 40 ข้อ จะมีหน้า <b>สรุปคะแนน</b> พร้อมชื่อผู้เล่น</li>
+        <li>ถ้า <b>คนเดิม</b> เล่นต่อเนื่องหลายรอบ ระบบจะบันทึกคะแนนแต่ละรอบ (แสดงล่าสุด 3 รอบ)</li>
+      </ol>
+      <div class="muted" style="margin-top:6px">เกณฑ์ผ่าน: <b>80%</b> (ได้ ≥ 32 คะแนน)</div>
+    </div>
+
+    <div class="row" style="margin-top:14px">
+      <div style="flex:1 1 280px">
+        <label>ชื่อผู้เล่น</label>
+        <input id="playerName" type="text" placeholder="เช่น Nita / 1/5" />
+      </div>
+      <div style="align-self:end">
+        <button id="btnStart" class="btn primary">เริ่มทำข้อสอบ ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAME -->
+  <section id="game" class="card hidden">
+    <div class="row" style="align-items:center;justify-content:space-between">
+      <div class="pill" id="topicPill">Topic</div>
+      <div class="row" style="align-items:center">
+        <div><b id="score">0</b> ✅</div>
+        <div>| <span id="done">0</span>/<span id="total">40</span></div>
+      </div>
+    </div>
+    <div class="progress" style="margin:8px 0 6px"><span id="bar"></span></div>
+
+    <div class="qtext" id="qtext">Question text</div>
+
+    <div id="olist" class="olist"></div>
+
+    <div class="row" style="margin-top:10px">
+      <button id="btnNext" class="btn ghost hidden">ข้อถัดไป ▶</button>
+    </div>
+
+    <footer id="footerGame"></footer>
+  </section>
+
+  <!-- SUMMARY -->
+  <section id="summary" class="card hidden">
+    <h2>สรุปคะแนน</h2>
+    <div class="muted" id="playerLine">ผู้เล่น: -</div>
+    <div style="margin-top:8px">
+      ได้คะแนน: <b id="finalScore">0</b>/<b id="finalTotal">40</b> — <span id="passStatus" class="pill">-</span>
+    </div>
+    <div class="muted" style="margin-top:6px">เกณฑ์ผ่าน: 32/40 (80%)</div>
+
+    <div class="card" style="margin-top:12px">
+      <b>สถิติ <span id="statName"></span> (ล่าสุดสูงสุด 3 รอบ)</b>
+      <table id="historyTable">
+        <thead><tr><th>รอบ</th><th>วันที่</th><th>เวลา</th><th>คะแนน</th><th>ผล</th></tr></thead>
+        <tbody id="historyBody"><tr><td colspan="5" class="muted">ยังไม่มีข้อมูล</td></tr></tbody>
+      </table>
+      <div id="attemptSummary" class="muted" style="margin-top:6px"></div>
+    </div>
+
+    <div class="row" style="margin-top:12px">
+      <button id="btnPlayAgain" class="btn primary">เริ่มรอบใหม่ ▶</button>
+      <button id="btnBackStart" class="btn ghost">กลับหน้าแรก</button>
+    </div>
+  </section>
+
+  <footer>© Kru Pai Classroom</footer>
+</div>
+
+<script>
+// ====== CONFIG ======
+const PASS_SCORE = 32; // 80% of 40; ปรับได้
+const STORAGE_PREFIX = 'eng_m1_exam_history_';
+
+// ====== QUESTION BANK ======
+const QUESTIONS = [
+  // Tenses (1-10)
+  {topic:'Tenses', q:'Every morning, Mina ____ to school by bus.', opts:['go','goes','is going','went'], ans:1},
+  {topic:'Tenses', q:'Right now, the kids ____ computer games in the library.', opts:['play','plays','are playing','played'], ans:2},
+  {topic:'Tenses', q:'Tom ____ his homework before dinner yesterday.', opts:['does','did','has done','is doing'], ans:1},
+  {topic:'Tenses', q:'We ____ this movie three times.', opts:['see','saw','have seen','are seeing'], ans:2},
+  {topic:'Tenses', q:'Look! It ____ outside.', opts:['rains','rained','is raining','has rained'], ans:2},
+  {topic:'Tenses', q:'I think it ____ sunny tomorrow.', opts:['will be','is going to be','was','is'], ans:0},
+  {topic:'Tenses', q:'When I called her, she ____ a shower.', opts:['takes','took','was taking','has taken'], ans:2},
+  {topic:'Tenses', q:'By the time we arrive, the show ____.', opts:['starts','started','will start','will have started'], ans:3},
+  {topic:'Tenses', q:'He ____ in Bangkok since 2023.', opts:['lives','lived','has lived','is living'], ans:2},
+  {topic:'Tenses', q:'Don’t call me at 10 p.m. I ____.', opts:['sleep','will sleep','will be sleeping','am slept'], ans:2},
+  // Articles (11-20)
+  {topic:'Articles', q:'I bought ____ umbrella because it was raining.', opts:['a','an','the','—'], ans:1},
+  {topic:'Articles', q:'Could you open ____ window, please?', opts:['a','an','the','—'], ans:2},
+  {topic:'Articles', q:'She wants to be ____ engineer.', opts:['a','an','the','—'], ans:1},
+  {topic:'Articles', q:'____ Mount Everest is the highest mountain.', opts:['A','An','The','—'], ans:3},
+  {topic:'Articles', q:'My father can play ____ guitar very well.', opts:['a','an','the','—'], ans:2},
+  {topic:'Articles', q:'I read ____ interesting article yesterday.', opts:['a','an','the','—'], ans:1},
+  {topic:'Articles', q:'She lives near ____ university on Ratchada Road.', opts:['a','an','the','—'], ans:0},
+  {topic:'Articles', q:'____ love is more important than money.', opts:['A','An','The','—'], ans:3},
+  {topic:'Articles', q:'We visited ____ Louvre when we were in Paris.', opts:['a','an','the','—'], ans:2},
+  {topic:'Articles', q:'He is ____ best student in his class.', opts:['a','an','the','—'], ans:2},
+  // Pronouns (21-30)
+  {topic:'Pronouns', q:'Jenny and I are friends. ____ often study together.', opts:['Us','We','Our','Ours'], ans:1},
+  {topic:'Pronouns', q:'Is this pen ____?', opts:['you','your','yours','yourself'], ans:2},
+  {topic:'Pronouns', q:'The teacher looked at Ben and said, “Is this book ____?”', opts:['he','him','his','himself'], ans:2},
+  {topic:'Pronouns', q:'My brother is taller than ____.', opts:['me','I','mine','myself'], ans:0},
+  {topic:'Pronouns', q:'Each student must bring ____ own notebook.', opts:['their','his or her','his','her'], ans:1},
+  {topic:'Pronouns', q:'Please give ____ a call when you arrive.', opts:['I','me','mine','myself'], ans:1},
+  {topic:'Pronouns', q:'That car is ____.', opts:['our','ours','us','we'], ans:1},
+  {topic:'Pronouns', q:'The baby can feed ____.', opts:['itself','themselves','herself','himself'], ans:0},
+  {topic:'Pronouns', q:'My sister is kind. My parents love ____ very much.', opts:['she','her','hers','herself'], ans:1},
+  {topic:'Pronouns', q:'____ is going to the market, but ____ forgot ____ wallet.', opts:['She / she / her','She / She / her','Her / she / hers','She / she / hers'], ans:0},
+  // Adjectives (31-40)
+  {topic:'Adjectives', q:'This is the ____ movie I have ever seen.', opts:['more exciting','most exciting','exciting','the most exciting'], ans:3},
+  {topic:'Adjectives', q:'My bag is ____ than yours.', opts:['heavy','more heavy','heavier','the heaviest'], ans:2},
+  {topic:'Adjectives', q:'She looks ____ today.', opts:['happily','happy','more happily','most happy'], ans:1},
+  {topic:'Adjectives', q:'A cheetah is ____ animal on land.', opts:['faster','the faster','fast','the fastest'], ans:3},
+  {topic:'Adjectives', q:'We need a ____ solution to this problem.', opts:['quick','more quick','quickest','more quickly'], ans:0},
+  {topic:'Adjectives', q:'Choose the correct order: “a / red / small / box”', opts:['a small red box','a red small box','a box small red','small red a box'], ans:0},
+  {topic:'Adjectives', q:'The soup smells ____.', opts:['delicious','deliciously','more delicious','most deliciously'], ans:0},
+  {topic:'Adjectives', q:'This test is ____ difficult than the last one.', opts:['most','much','more','very'], ans:2},
+  {topic:'Adjectives', q:'He is a ____ driver; be careful.', opts:['careful','careless','carefuler','more careful'], ans:1},
+  {topic:'Adjectives', q:'Among all the players, Nita is the ____.', opts:['talented','more talented','the most talented','most talented'], ans:3},
+];
+
+// ====== UTIL ======
+const $ = s => document.querySelector(s);
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
+function deepClone(x){ return JSON.parse(JSON.stringify(x)); }
+function fmtTime(d){ return d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}); }
+function fmtDate(d){ return d.toLocaleDateString(); }
+
+// ====== STATE ======
+let player = '';
+let seq = [];          // array of question objects for this session (with shuffled options)
+let idx = 0;
+let score = 0;
+let answered = [];     // boolean per question
+
+function startGame(){
+  player = ($('#playerName').value || 'นักเรียน').trim();
+  $('#footerGame').textContent = `กำลังเล่น: ${player}`;
+
+  // build shuffled question set
+  const base = deepClone(QUESTIONS);
+  const order = shuffle([...Array(base.length).keys()]);
+  seq = order.map(i => {
+    const q = base[i];
+    // shuffle options
+    const opts = q.opts.map((t, i) => ({t, i}));
+    shuffle(opts);
+    const newOpts = opts.map(o => o.t);
+    const newAns = opts.findIndex(o => o.i === q.ans);
+    return {topic:q.topic, q:q.q, opts:newOpts, ans:newAns};
+  });
+
+  idx = 0; score = 0; answered = new Array(seq.length).fill(false);
+
+  $('#start').classList.add('hidden');
+  $('#summary').classList.add('hidden');
+  $('#game').classList.remove('hidden');
+  renderQ();
+}
+
+function renderQ(){
+  const q = seq[idx];
+  $('#topicPill').textContent = q.topic;
+  $('#qtext').textContent = `${idx+1}. ${q.q}`;
+  $('#done').textContent = answered.filter(x=>x).length;
+  $('#total').textContent = seq.length;
+  $('#score').textContent = score;
+  $('#bar').style.width = (100*answered.filter(x=>x).length/seq.length).toFixed(1) + '%';
+
+  const olist = $('#olist');
+  olist.innerHTML = '';
+  ['A','B','C','D'].forEach((letter, k) => {
+    const div = document.createElement('div');
+    div.className = 'opt';
+    div.dataset.index = k;
+    div.innerHTML = `<b>${letter}.</b> ${q.opts[k]}`;
+    div.addEventListener('click', onChoose);
+    olist.appendChild(div);
+  });
+  $('#btnNext').classList.add('hidden');
+}
+
+function onChoose(e){
+  const choice = Number(e.currentTarget.dataset.index);
+  const q = seq[idx];
+
+  // lock options
+  Array.from(document.querySelectorAll('.opt')).forEach(el => el.classList.add('disabled'));
+
+  if(choice === q.ans){
+    e.currentTarget.classList.add('correct');
+    score++;
+  }else{
+    e.currentTarget.classList.add('wrong');
+    // highlight correct
+    const correctEl = document.querySelector(`.opt[data-index="${q.ans}"]`);
+    if(correctEl){ correctEl.classList.add('correct'); }
+  }
+
+  if(!answered[idx]){
+    answered[idx] = true;
+    $('#done').textContent = answered.filter(x=>x).length;
+    $('#score').textContent = score;
+    $('#bar').style.width = (100*answered.filter(x=>x).length/seq.length).toFixed(1) + '%';
+  }
+
+  // next or finish
+  const allDone = answered.every(x=>x);
+  if(allDone){
+    setTimeout(()=>finishGame(), 400);
+  }else{
+    $('#btnNext').classList.remove('hidden');
+  }
+}
+
+function nextQ(){
+  // go to next unanswered
+  for(let k=1;k<=seq.length;k++){
+    const ni = (idx + k) % seq.length;
+    if(!answered[ni]){ idx = ni; break; }
+  }
+  renderQ();
+}
+
+function finishGame(){
+  $('#game').classList.add('hidden');
+  $('#summary').classList.remove('hidden');
+
+  $('#playerLine').textContent = `ผู้เล่น: ${player}`;
+  $('#finalScore').textContent = score;
+  $('#finalTotal').textContent = seq.length;
+  const pass = (score >= PASS_SCORE);
+  const pill = $('#passStatus');
+  pill.textContent = pass ? 'ผ่าน' : 'ยังไม่ผ่าน';
+  pill.style.background = pass ? '#ecfdf5' : '#fef2f2';
+  pill.style.color = pass ? '#065f46' : '#7f1d1d';
+
+  // save to storage
+  const key = STORAGE_PREFIX + player;
+  const now = new Date();
+  const rec = {score, total:seq.length, pass, ts: now.toISOString()};
+  const hist = JSON.parse(localStorage.getItem(key) || '[]');
+  hist.push(rec);
+  localStorage.setItem(key, JSON.stringify(hist));
+
+  // fill history table (last 3)
+  $('#statName').textContent = player;
+  const tbody = $('#historyBody');
+  tbody.innerHTML = '';
+  const last3 = hist.slice(-3);
+  last3.forEach((r, i) => {
+    const d = new Date(r.ts);
+    const tr = document.createElement('tr');
+    const roundNo = hist.length - last3.length + (i+1);
+    tr.innerHTML = `<td>${roundNo}</td><td>${fmtDate(d)}</td><td>${fmtTime(d)}</td><td>${r.score}/${r.total}</td><td>${r.pass ? 'ผ่าน' : 'ไม่ผ่าน'}</td>`;
+    tbody.appendChild(tr);
+  });
+  if(last3.length===0){
+    const tr = document.createElement('tr'); tr.innerHTML = `<td colspan="5" class="muted">ยังไม่มีข้อมูล</td>`; tbody.appendChild(tr);
+  }
+
+  // attempts to first pass (overall for this player)
+  const firstPassIdx = hist.findIndex(r => r.pass);
+  const attemptTxt = (firstPassIdx>=0)
+    ? `ผ่านครั้งแรกในรอบที่ <b>${firstPassIdx+1}</b> (จากทั้งหมด ${hist.length} รอบของชื่อนี้)`
+    : `ยังไม่ผ่าน ภายใน ${hist.length} รอบของชื่อนี้`;
+  $('#attemptSummary').innerHTML = attemptTxt;
+}
+
+document.getElementById('btnStart').addEventListener('click', startGame);
+document.getElementById('btnNext').addEventListener('click', nextQ);
+document.getElementById('btnPlayAgain').addEventListener('click', startGame);
+document.getElementById('btnBackStart').addEventListener('click', ()=>{
+  document.getElementById('summary').classList.add('hidden');
+  document.getElementById('start').classList.remove('hidden');
+});
+</script>
+</body>
+</html>
